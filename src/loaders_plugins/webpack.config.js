@@ -1,7 +1,27 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin');
+const smp = new SpeedMeasureWebpackPlugin(); // this is used to see time spent on each loader and plugin
+const WebpackBundleAnalyzer = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = WebpackBundleAnalyzer;
+const HappyPack = require('happypack');
 
-module.exports = {
+
+const { ANALYZE } = process.env;
+
+const plugins = [
+  new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, './template.html')
+  }),
+  // new HappyPack({
+  //   loaders: [ 'babel-loader' ]
+  // })
+];
+if (ANALYZE) {
+  plugins.push(new BundleAnalyzerPlugin({ open: true }));
+}
+
+module.exports = smp.wrap({
   mode: 'development',
   entry: path.resolve(__dirname, './index.js'),
   output: {
@@ -15,6 +35,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+        // use: ['happypack/loader']
       },
       {
         test: /\.less$/,
@@ -40,10 +61,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './template.html')
-    })
-  ],
+  plugins,
   devtool: 'eval-source-map', // controls the source-map format
-}
+});
