@@ -13,9 +13,9 @@ const plugins = [
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, './template.html')
   }),
-  // new HappyPack({
-  //   loaders: [ 'babel-loader' ]
-  // })
+  new HappyPack({
+    loaders: [ 'babel-loader' ]
+  })
 ];
 if (ANALYZE) {
   plugins.push(new BundleAnalyzerPlugin({ open: true }));
@@ -34,8 +34,8 @@ module.exports = smp.wrap({
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-        // use: ['happypack/loader']
+        // use: ['babel-loader']
+        use: ['happypack/loader']
       },
       {
         test: /\.less$/,
