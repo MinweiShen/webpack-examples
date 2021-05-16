@@ -1,0 +1,23 @@
+{
+  "name": "webpack-examples",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.4",
+    "html-webpack-plugin": "^5.3.1",
+    "less": "^4.1.1",
+    "less-loader": "^9.0.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
+  },
+  "scripts": {
+    "build:basic": "webpack --config ./src/basic/webpack.config.js",
+    "build:loaders_plugins": "webpack --config ./src/loaders_plugins/webpack.config.js"
+  },
+  "browserslist": "last 1 Chrome versions"
+}
