@@ -1,11 +1,3 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -16,17 +8,15 @@
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"add\": () => (/* binding */ add),\n/* harmony export */   \"minus\": () => (/* binding */ minus)\n/* harmony export */ });\nfunction add(a, b) {\n  return a + b;\n}\nconst minus = (a, b) => a - b;\n\n//# sourceURL=webpack://webpack-examples/./src/basic/calc.js?");
-
-/***/ }),
-
-/***/ "./src/basic/index.js":
-/*!****************************!*\
-  !*** ./src/basic/index.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _calc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calc */ \"./src/basic/calc.js\");\n/* harmony import */ var _strings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./strings */ \"./src/basic/strings.js\");\n\n\n(0,_calc__WEBPACK_IMPORTED_MODULE_0__.add)(1, 2);\n(0,_strings__WEBPACK_IMPORTED_MODULE_1__.truncate)('Hello World');\n\n//# sourceURL=webpack://webpack-examples/./src/basic/index.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "add": () => (/* binding */ add),
+/* harmony export */   "minus": () => (/* binding */ minus)
+/* harmony export */ });
+function add(a, b) {
+  return a + b;
+}
+const minus = (a, b) => a - b;
 
 /***/ }),
 
@@ -36,7 +26,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _cal
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"truncate\": () => (/* binding */ truncate)\n/* harmony export */ });\nfunction truncate(str) {\n  return str.slice(0, 3);\n}\n\n//# sourceURL=webpack://webpack-examples/./src/basic/strings.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "truncate": () => (/* binding */ truncate)
+/* harmony export */ });
+function truncate(str) {
+  return str.slice(0, 3);
+}
 
 /***/ })
 
@@ -96,11 +92,21 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/basic/index.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!****************************!*\
+  !*** ./src/basic/index.js ***!
+  \****************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _calc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calc */ "./src/basic/calc.js");
+/* harmony import */ var _strings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./strings */ "./src/basic/strings.js");
+
+
+(0,_calc__WEBPACK_IMPORTED_MODULE_0__.add)(1, 2);
+(0,_strings__WEBPACK_IMPORTED_MODULE_1__.truncate)('Hello World');
+})();
+
 /******/ })()
 ;
+//# sourceMappingURL=output.js.map
