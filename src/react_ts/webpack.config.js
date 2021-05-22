@@ -43,7 +43,11 @@ module.exports = {
       test: /\.tsx?$/,
       exclude: /node_modules/,
       use: ['babel-loader?cacheDirectory=true']
-    }
+    },
+    {
+      test: /\.(jpg|jpeg)$/,
+      type: 'asset/inline'
+    },
     ]
   },
   plugins,
